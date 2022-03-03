@@ -1,13 +1,14 @@
 package com.example.sqlinjection1.model;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 @Entity
 @Table(name="products")
 public class Product {
     @Id
     @GeneratedValue
-    private Integer id;
+    private BigInteger id;
 
     @Column(nullable = false, unique = true, length = 45)
     private String productName;
@@ -16,17 +17,17 @@ public class Product {
     private String productType;
 
     @Column(nullable = false)
-    private Integer productCount;
+    private BigInteger productCount;
 
     @ManyToOne(optional = false)
     @JoinColumn(name="user_id", nullable = false)
     private User user;
 
-    public Integer getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 
@@ -46,11 +47,11 @@ public class Product {
         this.productType = productType;
     }
 
-    public Integer getProductCount() {
+    public BigInteger getProductCount() {
         return productCount;
     }
 
-    public void setProductCount(Integer productCount) {
+    public void setProductCount(BigInteger productCount) {
         this.productCount = productCount;
     }
 

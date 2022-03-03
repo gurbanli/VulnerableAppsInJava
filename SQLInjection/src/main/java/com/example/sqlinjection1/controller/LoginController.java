@@ -32,7 +32,6 @@ public class LoginController {
         try{
             HashUtility hashUtility = new HashUtility();
             String hashedPassword = hashUtility.hashPassword(password);
-            log.info(hashedPassword);
             User user = (User) entityManager.createNativeQuery("select * from users where username='" + username + "' and password='" + hashedPassword +"';", User.class).getSingleResult();
             session.setAttribute("user", user);
             return "redirect:/products";

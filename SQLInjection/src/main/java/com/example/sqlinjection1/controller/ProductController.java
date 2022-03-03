@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,10 +39,10 @@ public class ProductController {
                 List<Object[]> results = entityManager.createNativeQuery(query).getResultList();
                 for(Object[] result: results){
                     Product product = new Product();
-                    product.setId((Integer) result[0]);
+                    product.setId((java.math.BigInteger) result[0]);
                     product.setProductName((String) result[1]);
                     product.setProductType((String) result[2]);
-                    product.setProductCount((Integer) result[3]);
+                    product.setProductCount((java.math.BigInteger) result[3]);
                     products.add(product);
                 }
             }else{
@@ -60,7 +61,7 @@ public class ProductController {
             HttpSession session,
             @RequestParam(value="product_name") String productName,
             @RequestParam(value="product_type") String productType,
-            @RequestParam(value="product_count") Integer productCount
+            @RequestParam(value="product_count") BigInteger productCount
     )
     {
         Product product = new Product();
