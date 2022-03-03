@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Injection APP</title>
+</head>
+<body>
+<form method="post" th:action="@{/login}">
+    <label for="username">Username</label><input type="text" th:name="username" id="username">
+    <label for="password">Password</label><input type="text" th:name="password" id="password">
+    <input type="submit" value="Log In"><br>
+    <span th:if="${error != null}" th:text="${error}" style="color:red"></span>
+</form>
+</body>
+</html>
