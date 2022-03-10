@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Page</title>
+</head>
+<style>
+  table.innerTable{
+    width:100%
+  }
+  table.innerTable, tr.innerTable, td.innerTable{
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+</style>
+<body>
+<h1 th:text="'Hello, ' + ${username}"></h1>
+<a th:href="@{/logout}"><button>Logout</button></a><br><br>
+<a th:if="${username == 'admin'}" th:href="@{/products/check?id=1}"><button>Check existing products</button></a><br><br>
+<form method="post" enctype="multipart/form-data" action="/file">
+  <table>
+    <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+    <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+  </table>
+</form>
+<span style="color:green" th:if="${message}"th:text="${message}"></span>
+<span style="color:red" th:if="${error}"th:text="${error}"></span>
+
+<br><br>
+<form method="post" action="/products">
+  <label>Product Name </label><input type="text" name="product_name"><br><br>
+  <label>Product Type </label><input type="text" name="product_type"><br><br>
+  <label>Product Count </label><input type="text" name="product_count"><br><br>
+  <input type="submit" value="Add Product"><br>
+</form>
+<table class="innerTable">
+  <tr class="innerTable">
+    <td class="innerTable">ID</td>
+    <td class="innerTable">Product Name</td>
+    <td class="innerTable">Product Type</td>
+    <td class="innerTable">Product Count</td>
+  </tr>
+  <tr th:each="product: ${products}" class="innerTable">
+    <td th:text="${product.getId()}" class="innerTable"></td>
+    <td th:text="${product.getProductName()}" class="innerTable"></td>
+    <td th:text="${product.getProductType()}" class="innerTable"></td>
+    <td th:text="${product.getProductCount()}" class="innerTable"></td>
+  </tr>
+</table>
+</body>
+</html>
