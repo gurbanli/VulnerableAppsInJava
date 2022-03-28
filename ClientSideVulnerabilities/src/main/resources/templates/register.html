@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Page</title>
+</head>
+<body>
+<h1>Sign Up</h1>
+<form method="post" th:action="@{/register}" th:object="${user}" style="max-width: 600px;">
+  <label for="username">Username </label><input type="text" th:field="*{username}" id="username"><br>
+  <label for="first_name">First Name </label><input type="text" th:field="*{firstName}" id="first_name"><br>
+  <label for="last_name">Last Name </label><input type="text" th:field="*{lastName}" id="last_name"><br>
+  <label for="password">Password </label><input type="password" th:field="*{password}" id="password"><br>
+  <input type="submit" value="Sign Up"><br>
+</form>
+</body>
+</html>
