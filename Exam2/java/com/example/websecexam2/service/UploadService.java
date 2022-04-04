@@ -9,7 +9,7 @@ import java.net.URLDecoder;
 
 @Service
 public class UploadService {
-    private final String UPLOAD_DIR = "/home/gurbanli/IdeaProjects/WebSecExam2/src/main/webapp/uploads/";
+    private final String UPLOAD_DIR = "/Users/gurbanli/IdeaProjects/WebSecExam2/src/main/resources/static/";
     public boolean store(MultipartFile file) {
         String filename = URLDecoder.decode(file.getOriginalFilename());
         OutputStream outFileStream = null;
